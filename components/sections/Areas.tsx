@@ -69,17 +69,45 @@ export function Areas() {
 
   return (
     <section id="areas" aria-labelledby="areas-titulo" className="relative bg-espresso">
-      <div className="shell pb-[clamp(3rem,7vh,6rem)] pt-[var(--space-section)]">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <h2 id="areas-titulo" className="eyebrow text-ash">
-            Áreas de trabajo
-          </h2>
-          <Reveal
-            as="p"
-            className="measure-tight font-display text-d3 text-bone/70 sm:text-right"
+      {/* Apertura de la seccion: mismo patron que el manifiesto — punto cobre,
+          eyebrow y una frase grande en display — pero en oscuro. Antes eran el
+          eyebrow y la frase en chico repartidos a los costados, y leia como una
+          barra suelta, no como la entrada del elemento firma del sitio. */}
+      <div className="shell pb-[clamp(3.5rem,8vh,7rem)] pt-[var(--space-section)]">
+        <div className="grid gap-x-12 gap-y-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <h2
+              id="areas-titulo"
+              className="eyebrow flex items-start gap-3 text-ash"
+            >
+              <span
+                aria-hidden="true"
+                className="mt-[0.55em] block h-1 w-1 shrink-0 rounded-full bg-copper"
+              />
+              Áreas de trabajo
+            </h2>
+            <Reveal
+              as="p"
+              className="mt-9 max-w-[20ch] font-display text-d1 text-bone"
+              stagger={0.07}
+            >
+              Tres áreas. La misma forma de trabajar en las tres.
+            </Reveal>
+          </div>
+
+          {/* El rango de numeracion ata la apertura con los 01/02/03 de los
+              planos que vienen abajo. */}
+          <RevealBlock
+            className="hidden lg:col-span-2 lg:col-start-11 lg:block lg:justify-self-end"
+            y={12}
           >
-            Tres áreas. La misma forma de trabajar en las tres.
-          </Reveal>
+            <p
+              aria-hidden="true"
+              className="font-display text-d2 leading-none text-copper"
+            >
+              01—03
+            </p>
+          </RevealBlock>
         </div>
       </div>
 
