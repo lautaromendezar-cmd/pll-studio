@@ -1,5 +1,6 @@
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { Reveal, RevealBlock } from '@/components/ui/Reveal'
+import { WhatsappIcon } from '@/components/ui/WhatsappIcon'
 import { site } from '@/content/site'
 
 const datos = [
@@ -14,6 +15,16 @@ const datos = [
   { etiqueta: 'Horario', valor: site.horarios.texto, href: null },
 ]
 
+/**
+ * Cierre de la pagina. Dos columnas: el mensaje y la accion a la izquierda,
+ * los datos apilados a la derecha.
+ *
+ * Revision 3: el CTA gigante a todo el ancho se reemplazo por el mismo boton
+ * cobre del hero. El panel enorme con la keyline en hover leia como un bloque
+ * decorativo raro, no como un boton — y la accion mas importante del sitio no
+ * puede ser el elemento mas confuso. Un boton que ya aprendiste a usar arriba
+ * es un boton que reconoces aca abajo.
+ */
 export function Contacto() {
   return (
     <section
@@ -21,54 +32,51 @@ export function Contacto() {
       aria-labelledby="contacto-titulo"
       className="bg-espresso-deep pb-[var(--space-section)] pt-[var(--space-section-lg)]"
     >
-      <div className="shell">
-        <p className="eyebrow text-ash">{site.contactoSeccion.eyebrow}</p>
-
-        <Reveal
-          as="h2"
-          className="mt-9 max-w-[16ch] text-hero text-bone"
-          stagger={0.08}
-        >
-          <span id="contacto-titulo">{site.contactoSeccion.titulo}</span>
-        </Reveal>
-
-        <Reveal as="p" className="measure mt-9 text-lead text-bone/70">
-          {site.contactoSeccion.bajada}
-        </Reveal>
-
-        {/* El CTA ocupa casi todo el ancho: es la unica accion del sitio.
-            En hover NO se rellena de cobre — un plano cobre de 1300px de ancho
-            convierte el acento en fondo y el sitio entero se vuelve terracota.
-            El feedback es una keyline que se dibuja sobre el borde superior. */}
-        <RevealBlock className="mt-14" y={20}>
-          <MagneticButton
-            href={site.contacto.whatsapp}
-            external
-            cursorLabel="Escribir"
-            className="group/cta relative block w-full border border-copper/35 px-7 py-8 transition-colors duration-500 hover:border-copper/70 sm:px-11 sm:py-10"
-          >
+      <div className="shell grid gap-x-14 gap-y-16 lg:grid-cols-12 lg:items-start">
+        <div className="lg:col-span-7">
+          <p className="eyebrow flex items-start gap-3 text-ash">
             <span
               aria-hidden="true"
-              className="absolute inset-x-0 top-0 block h-px origin-left scale-x-0 bg-copper transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover/cta:scale-x-100"
+              className="mt-[0.55em] block h-1 w-1 shrink-0 rounded-full bg-copper"
             />
-            <span className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
-              <span className="font-display text-d1 text-bone transition-colors duration-500 group-hover/cta:text-copper">
+            {site.contactoSeccion.eyebrow}
+          </p>
+
+          <Reveal
+            as="h2"
+            className="mt-9 max-w-[16ch] text-hero text-bone"
+            stagger={0.08}
+          >
+            <span id="contacto-titulo">{site.contactoSeccion.titulo}</span>
+          </Reveal>
+
+          <Reveal as="p" className="measure mt-9 text-lead text-bone/70">
+            {site.contactoSeccion.bajada}
+          </Reveal>
+
+          <RevealBlock className="mt-12" y={20}>
+            <MagneticButton
+              href={site.contacto.whatsapp}
+              external
+              cursorLabel="Escribir"
+              className="eyebrow inline-block bg-copper px-8 py-4.5 text-espresso-deep transition-colors duration-400 hover:bg-copper-light focus-visible:outline-bone"
+            >
+              <span className="flex items-center justify-center gap-3 whitespace-nowrap">
+                <WhatsappIcon className="h-4 w-4 shrink-0" />
                 Consultar por WhatsApp
               </span>
-              <span
-                aria-hidden="true"
-                className="eyebrow flex shrink-0 items-center gap-4 whitespace-nowrap pb-2 text-copper"
-              >
-                {site.contacto.celular}
-                <span className="block h-px w-10 bg-current transition-[width] duration-500 ease-[var(--ease-out-expo)] group-hover/cta:w-20" />
-              </span>
-            </span>
-          </MagneticButton>
-        </RevealBlock>
+            </MagneticButton>
+          </RevealBlock>
+        </div>
 
-        <dl className="mt-20 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Los datos en una sola columna con hairlines: leen como la ficha del
+            estudio, no como una grilla de features. */}
+        <dl className="lg:col-span-4 lg:col-start-9">
           {datos.map((d) => (
-            <div key={d.etiqueta} className="border-t border-line py-6">
+            <div
+              key={d.etiqueta}
+              className="border-t border-line py-5 first:border-t-0 first:pt-0 last:border-b"
+            >
               <dt className="eyebrow text-ash">{d.etiqueta}</dt>
               <dd className="mt-3 text-body text-bone">
                 {d.href ? (
