@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef } from 'react'
 import { Reveal } from '@/components/ui/Reveal'
 import { proceso, procesoCierre } from '@/content/proceso'
@@ -71,7 +72,14 @@ export function Proceso() {
       <div ref={root} className="relative overflow-hidden lg:h-svh">
         <div className="shell flex h-full flex-col justify-center pb-[var(--space-section)] pt-[calc(var(--space-section)+2rem)] lg:pb-[clamp(3rem,6vh,5rem)]">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <h2 id="proceso-titulo" className="eyebrow text-espresso/70">
+            <h2
+              id="proceso-titulo"
+              className="eyebrow flex items-start gap-3 text-espresso/70"
+            >
+              <span
+                aria-hidden="true"
+                className="mt-[0.55em] block h-1 w-1 shrink-0 rounded-full bg-copper"
+              />
               El proceso
             </h2>
             <Reveal
@@ -86,7 +94,7 @@ export function Proceso() {
               simplemente el largo de la secuencia. */}
           <div
             aria-hidden="true"
-            className="relative mt-12 h-px w-full bg-line lg:mt-16"
+            className="relative mt-10 h-px w-full bg-line lg:mt-12"
           >
             <span
               data-barra
@@ -96,24 +104,37 @@ export function Proceso() {
 
           <div
             data-track
-            className="mt-12 flex snap-x snap-mandatory gap-8 overflow-x-auto pb-6 lg:mt-16 lg:snap-none lg:overflow-visible lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto pb-6 lg:mt-12 lg:snap-none lg:overflow-visible lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {proceso.map((paso, i) => (
+            {proceso.map((paso) => (
               <article
                 key={paso.numero}
-                className="relative w-[min(78vw,22rem)] shrink-0 snap-start lg:w-[clamp(21rem,28vw,28rem)]"
+                className="relative w-[min(78vw,22rem)] shrink-0 snap-start lg:w-[clamp(19rem,25vw,25rem)]"
               >
-                {/* La cifra arranco en espresso/12 y quedaba lindisima, pero
-                    daba 1.27:1 contra el bone: ilegible para baja vision. A
-                    /50 llega a 3.29:1, el minimo de AA para texto grande. Se
-                    achico el solape para que no pelee con el titulo. */}
-                <span
-                  aria-hidden="true"
-                  className="block font-display text-num text-espresso/50"
-                >
-                  {paso.numero}
-                </span>
-                <div className="-mt-[0.16em] pl-[0.12em]">
+                {/* La imagen le pone cuerpo al paso y el numero vive adentro,
+                    en cobre sobre la sombra espresso — el mismo trato que los
+                    numeros de los planos de Areas. El velo garantiza que el
+                    cobre lea sobre cualquier zona de la foto. */}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={paso.imagen}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 28vw, 78vw"
+                    className="object-cover"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-[linear-gradient(to_top,var(--color-espresso)_0%,color-mix(in_srgb,var(--color-espresso)_35%,transparent)_45%,transparent_75%)]"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute bottom-3 left-5 font-display text-num leading-none text-copper"
+                  >
+                    {paso.numero}
+                  </span>
+                </div>
+                <div className="mt-6">
                   <h3 className="font-display text-d2 text-espresso">
                     {paso.titulo}
                   </h3>
@@ -121,12 +142,6 @@ export function Proceso() {
                     {paso.texto}
                   </p>
                 </div>
-                {i < proceso.length - 1 && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute -right-4 top-[3.2em] hidden h-px w-8 bg-copper/45 lg:block"
-                  />
-                )}
               </article>
             ))}
 
