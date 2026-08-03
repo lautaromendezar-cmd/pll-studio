@@ -6,16 +6,16 @@ import { site } from '@/content/site'
  * de si mismo, y se resuelve con una sola frase larga: sin imagen, sin iconos,
  * sin tres columnas de "valores".
  *
- * El borde superior sube en el angulo del logo. La subida es 7.21% del ancho
- * del contenedor — ver `swash-cut` en globals.css.
+ * El borde superior es recto. Antes subia en diagonal a 12.7 grados; se saco
+ * porque en pantalla leia como un recorte mal hecho.
  */
 export function Manifiesto() {
   return (
-    <div className="swash-frame relative -mt-[7.5vw]">
+    <div className="relative">
       <section
         id="manifiesto"
         aria-labelledby="manifiesto-titulo"
-        className="on-bone swash-cut relative pb-[var(--space-section-lg)] pt-[calc(var(--space-section)+7vw)]"
+        className="on-bone relative pb-[var(--space-section-lg)] pt-[var(--space-section-lg)]"
       >
         <div className="shell grid gap-12 lg:grid-cols-12 lg:gap-x-16">
           <div className="lg:col-span-7">

@@ -18,6 +18,13 @@ export type Area = {
   situacion?: string
   /** Se listan bajo una keyline en la pagina de area. Tambien alimentan el SEO. */
   materias: string[]
+  /**
+   * Imagen de la seccion. Atmosferica, no documental: no afirma ser un lugar
+   * concreto del estudio ni de un caso. Sin personas, y sin balanzas, martillos
+   * ni columnas — ver la lista de prohibidos en DESIGN.md.
+   */
+  imagen: string
+  imagenAlt: string
   metaTitle: string
   metaDescription: string
 }
@@ -50,6 +57,9 @@ export const areas: Area[] = [
       'Prescripción adquisitiva',
       'Daño material y moral',
     ],
+    imagen: '/img/area-danos.jpg',
+    imagenAlt:
+      'Calle mojada de noche vista desde adentro de un auto, con las luces de la ciudad desenfocadas a través del parabrisas.',
     metaTitle: 'Abogado de daños y accidentes de tránsito en Monte Grande',
     metaDescription:
       'Accidentes de tránsito, daños y perjuicios, sucesiones, desalojos y ejecuciones. Estudio jurídico en Monte Grande, Esteban Echeverría, con más de 30 años de trayectoria.',
@@ -85,6 +95,9 @@ export const areas: Area[] = [
       'Reclamos salariales',
       'Asesoramiento a empresas',
     ],
+    imagen: '/img/area-laboral.jpg',
+    imagenAlt:
+      'Nave industrial vacía al final de la jornada, con un haz de luz cálida entrando por una ventana alta y cruzando el piso de hormigón.',
     metaTitle: 'Abogado laboral en zona sur — despidos y accidentes de trabajo',
     metaDescription:
       'Accidentes de trabajo, enfermedades profesionales, despidos y reclamos salariales. Asesoramiento a trabajadores y empresas desde Monte Grande, zona sur del Gran Buenos Aires.',
@@ -110,6 +123,9 @@ export const areas: Area[] = [
       'Arbitrajes deportivos',
       'Tribunal Arbitral del Deporte (TAS/CAS)',
     ],
+    imagen: '/img/area-deportivo.jpg',
+    imagenAlt:
+      'Salida del túnel de vestuarios hacia una cancha de fútbol vacía al atardecer, con las luces del estadio encendidas.',
     metaTitle: 'Abogado de derecho deportivo en Argentina — contratos y TAS/CAS',
     metaDescription:
       'Contratos deportivos, transferencias, derechos de formación, procedimientos disciplinarios y arbitrajes ante tribunales nacionales e internacionales, incluido el TAS/CAS.',

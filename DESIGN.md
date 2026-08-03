@@ -29,16 +29,21 @@ Traducción a arquitectura:
 Medido, no elegido. El remate de la L itálica del archivo original va de `(-2.488, -14.048)` a
 `(0.69, -0.001)` en unidades del PDF: `atan(3.178 / 14.047) = 12.75°` respecto de la vertical.
 
-Es el ángulo de inclinación de la itálica del logo, y es **el único ángulo diagonal que se usa en
-todo el sitio**:
+Es el ángulo de inclinación de la itálica del logo. Sigue siendo el único ángulo diagonal del
+sitio, pero **el alcance se recortó fuerte en la revisión 2**.
 
-- borde de los planos apilados de Áreas
-- `clip-path` de entrada de las imágenes
-- subrayado del CTA primario
-- keyline que separa el hero del manifiesto
+Dónde vive hoy:
+
 - inclinación de la marca de posición en el diagrama de Alcance
+- inclinación de las iniciales en el retrato tipográfico del equipo
 
-Nunca 45°. Nunca 0°. Siempre 12.7°. Token: `--angle-swash`.
+Dónde vivía y **ya no**: el borde de los planos apilados de Áreas y el corte entre el hero y el
+manifiesto. En pantalla ese corte se leía como un recorte mal hecho, no como una decisión, y le
+robaba atención a lo único que importa en esa sección, que es el apilado. Todos los bordes de
+sección son rectos. El apilado ahora se marca con una hairline cobre de 1px, que hace el mismo
+trabajo sin ruido.
+
+Nunca 45°. Nunca 0°. Cuando hay diagonal, 12.7°. Token: `--angle-swash`.
 
 ## 3. Paleta
 
@@ -102,13 +107,20 @@ lado.
 Escala con `clamp()`, sin breakpoints tipográficos:
 
 ```
---step-hero:  clamp(3.5rem, 11vw, 12rem)
---step-1:     clamp(2.5rem, 6.5vw, 6rem)
---step-2:     clamp(1.75rem, 3.4vw, 3rem)
---step-3:     clamp(1.25rem, 2vw, 1.75rem)
---step-body:  clamp(1rem, 1.05vw, 1.125rem)
---step-util:  clamp(0.6875rem, 0.8vw, 0.8125rem)
+--text-hero:  clamp(2.75rem, 7.5vw, 7.5rem)
+--text-d1:    clamp(1.875rem, 4vw, 3.75rem)
+--text-d2:    clamp(1.5rem, 2.4vw, 2.25rem)
+--text-d3:    clamp(1.125rem, 1.5vw, 1.4375rem)
+--text-num:   clamp(2.75rem, 6vw, 5.5rem)
+--text-body:  clamp(1rem, 1.05vw, 1.0625rem)
+--text-util:  clamp(0.6875rem, 0.8vw, 0.8125rem)
 ```
+
+**Bajada un escalón completo en la revisión 2.** La primera versión llegaba a 12rem (192px) en el
+titular y 6rem en los display: en un monitor de 1920 el hero ocupaba el viewport entero y el sitio
+se leía como un afiche, no como un estudio jurídico. Los topes de ahora dan ~108px de titular a
+1440px y no pasan de 120px por ancho que sea la pantalla. Los titulares siguen siendo grandes; lo
+que se corrigió es que competían con el contenido en vez de introducirlo.
 
 ## 5. Layout
 
@@ -172,15 +184,20 @@ Escala con `clamp()`, sin breakpoints tipográficos:
 └────────────────────────────────────────────────────────────────┘
 ```
 
-### Rupturas de grilla deliberadas (mínimo 3, hay 5)
+### Rupturas de grilla deliberadas
 
 1. **Hero** — el monograma se sangra fuera del viewport por derecha y por abajo. No entra entero
    a propósito.
 2. **Manifiesto** — dos columnas 7/5 con la segunda desplazada 40% hacia abajo.
 3. **Alcance** — el diagrama desborda el contenedor por la derecha y se corta con el viewport.
-4. **El estudio** — los tres números están a tres alturas distintas, no alineados.
+4. **El estudio** — columnas 4/7 con un hueco de una columna entera entre la imagen y las fichas.
 5. **Áreas** — el número de área vive fuera de la caja de texto, sangrado a la izquierda del
    contenedor.
+
+En la revisión 2 se sacó una sexta que estaba de más: los tres números del estudio arrancaron a
+tres alturas distintas y, sumados a los dos socios también desfasados, el bloque no leía como
+asimetría sino como desorden. La asimetría del estudio ahora está en el ancho de las columnas, que
+es donde no se confunde con un error de maquetado.
 
 ### Páginas de área (`/areas/[slug]`)
 
@@ -237,12 +254,30 @@ Lo que hubiera salido "solo", y por qué no está:
 8. **Timeline vertical con puntitos para el proceso.** Es una secuencia real de 4 pasos, así que
    la numeración se justifica — pero en horizontal con pin, no en la vertical de siempre.
 
-## 8. Lo que quedó fuera y por qué
+## 8. Imágenes
 
-- **Fotos del equipo y del estudio.** El cliente todavía no las mandó. No hay stock de gente en
-  traje ni retratos generados. El componente `<TeamPortrait>` está armado y espera la imagen: en
-  cuanto exista, se agrega la ruta en `content/team.ts` y aparece. Mientras tanto, el bloque se
-  resuelve con tipografía y con el monograma.
+Las cuatro imágenes del sitio (`public/img/`) están generadas con IA y son **atmosféricas, no
+documentales**. Ninguna afirma ser un lugar del estudio ni un caso concreto:
+
+| Archivo | Dónde | Qué es |
+|---|---|---|
+| `estudio.jpg` | Bloque El estudio | Escritorio de madera con una lámpara, en penumbra |
+| `area-danos.jpg` | Área 01 + su página | Calle mojada de noche vista desde un auto |
+| `area-laboral.jpg` | Área 02 + su página | Nave industrial vacía al final del día |
+| `area-deportivo.jpg` | Área 03 + su página | Túnel de vestuarios hacia una cancha vacía |
+
+Reglas que cumplen todas: sin personas ni caras, sin gente en traje, sin balanza, sin martillo,
+sin columnas, sin estantería de libros de derecho, sin texto ni logos legibles. Paleta forzada a
+espresso / cobre / bone, con lo que entran en el sitio sin parecer stock pegado encima.
+
+**Lo que deliberadamente NO se generó: los retratos del equipo.** El Dr. Pérez y el Dr. Llamera
+son personas reales; una cara inventada publicada con su nombre falsifica su imagen. El componente
+`<TeamPortrait>` está armado y espera la foto real: en cuanto exista, se carga la ruta en
+`content/team.ts` y la sección cambia sola a la versión con retratos.
+
+## 9. Lo que quedó fuera y por qué
+
+- **Fotos reales del equipo y del estudio.** El cliente todavía no las mandó. Ver arriba.
 - **Número de matrícula y colegio.** El cliente dejó esa pregunta sin responder en el documento.
   El footer dice "matrícula federal" porque eso sí está confirmado, pero no lleva número inventado.
 - **Primera consulta sin cargo.** Confirmada por el cliente, pero pidió expresamente no publicarla

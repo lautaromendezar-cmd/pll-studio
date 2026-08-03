@@ -104,6 +104,16 @@ export const site = {
     ],
   },
 
+  /**
+   * Imagen del bloque "El estudio". Atmosferica: es un escritorio con una
+   * lampara, no una foto documental de la oficina real ni del equipo. Cuando el
+   * cliente mande fotos propias, se reemplaza el archivo y listo.
+   */
+  estudioImagen: {
+    src: '/img/estudio.jpg',
+    alt: 'Escritorio de madera oscura con una carpeta de cuero cerrada, iluminado por una lámpara de bronce en una oficina en penumbra.',
+  },
+
   contactoSeccion: {
     eyebrow: 'Contacto',
     titulo: 'Contanos qué te pasó.',

@@ -1,16 +1,42 @@
 import { Counter } from '@/components/ui/Counter'
+import { Frame } from '@/components/ui/Frame'
 import { Reveal, RevealBlock } from '@/components/ui/Reveal'
 import { TeamPortrait } from '@/components/ui/TeamPortrait'
 import { equipo, equipoResto } from '@/content/team'
 import { site } from '@/content/site'
 
-/** Alturas distintas para cada cifra: no es una barra de estadisticas. */
-const DESFASE = ['lg:mt-0', 'lg:mt-20', 'lg:mt-10']
-
+/**
+ * El estudio.
+ *
+ * Version reescrita: la primera tenia a los dos socios a alturas distintas y a
+ * "El equipo" colgando en una fila nueva, y quedaba un hueco enorme en el medio
+ * derecho. Se leia como desorden, no como asimetria.
+ *
+ * Ahora: imagen a la izquierda y las tres fichas apiladas a la derecha,
+ * arrancando todas a la misma altura y separadas por hairlines. La ruptura de
+ * grilla queda en el ancho de las columnas (4 / 7), no en desfasajes verticales.
+ * Las cifras van en una fila pareja al pie.
+ */
 export function Estudio() {
-  // Mientras no haya fotos, el bloque se resuelve tipograficamente. En cuanto
-  // se cargue una ruta en content/team.ts aparecen los retratos, sin tocar esto.
+  // Mientras no haya fotos del equipo, el bloque se resuelve con la imagen de
+  // ambiente y tipografia. En cuanto se cargue una ruta en content/team.ts,
+  // aparecen los retratos, sin tocar esto.
   const hayFotos = equipo.some((m) => m.foto)
+
+  const fichas = [
+    ...equipo.map((m) => ({
+      nombre: m.nombre,
+      rol: m.titulo,
+      detalle: m.detalle,
+      miembro: m,
+    })),
+    {
+      nombre: equipoResto.titulo,
+      rol: null,
+      detalle: equipoResto.detalle,
+      miembro: null,
+    },
+  ]
 
   return (
     <section
@@ -25,72 +51,60 @@ export function Estudio() {
 
         <Reveal
           as="p"
-          className="measure mt-9 font-display text-d1 text-bone"
+          className="measure mt-7 font-display text-d1 text-bone"
           stagger={0.07}
         >
           Un equipo chico, con nombre y apellido.
         </Reveal>
 
-        <div className="mt-20 grid gap-x-12 gap-y-16 lg:grid-cols-12">
-          {equipo.map((m, i) => (
-            <article
-              key={m.nombre}
-              className={
-                i === 0
-                  ? 'lg:col-span-5'
-                  : 'lg:col-span-5 lg:col-start-8 lg:mt-28'
-              }
-            >
-              {hayFotos && (
-                <div className="mb-9 max-w-sm">
-                  <TeamPortrait miembro={m} />
-                </div>
-              )}
-              <RevealBlock y={14}>
-                <hr className="hairline" />
-              </RevealBlock>
-              <Reveal as="h3" className="mt-7 font-display text-d2 text-bone">
-                {m.nombre}
-              </Reveal>
-              <p className="eyebrow mt-4 text-copper">{m.titulo}</p>
-              <Reveal
-                as="p"
-                className="measure mt-5 text-body text-bone/70"
-                stagger={0.05}
-              >
-                {m.detalle}
-              </Reveal>
-            </article>
-          ))}
+        <div className="mt-16 grid gap-x-14 gap-y-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Frame
+              src={site.estudioImagen.src}
+              alt={site.estudioImagen.alt}
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="aspect-[4/5] w-full"
+            />
+          </div>
 
-          <article className="lg:col-span-4 lg:col-start-1">
-            <RevealBlock y={14}>
-              <hr className="hairline" />
-            </RevealBlock>
-            <h3 className="mt-7 font-display text-d3 text-bone/85">
-              {equipoResto.titulo}
-            </h3>
-            <Reveal
-              as="p"
-              className="measure mt-4 text-body text-bone/60"
-              stagger={0.05}
-            >
-              {equipoResto.detalle}
-            </Reveal>
-          </article>
+          <div className="lg:col-span-7 lg:col-start-6">
+            {fichas.map((f) => (
+              <article
+                key={f.nombre}
+                className="border-t border-line py-8 first:pt-0 last:border-b"
+              >
+                {hayFotos && f.miembro?.foto && (
+                  <div className="mb-7 max-w-[16rem]">
+                    <TeamPortrait miembro={f.miembro} />
+                  </div>
+                )}
+                <Reveal as="h3" className="font-display text-d2 text-bone">
+                  {f.nombre}
+                </Reveal>
+                {f.rol && <p className="eyebrow mt-3 text-copper">{f.rol}</p>}
+                <Reveal
+                  as="p"
+                  className="measure mt-4 text-body text-bone/70"
+                  stagger={0.05}
+                >
+                  {f.detalle}
+                </Reveal>
+              </article>
+            ))}
+          </div>
         </div>
 
         {/* Las tres cifras que el estudio puede sostener. Nada de "casos ganados"
             ni porcentajes de exito: ademas de inventado, la ley de etica
             profesional no lo permite. */}
-        <ul className="mt-32 grid gap-x-12 gap-y-14 sm:grid-cols-3">
-          {site.cifras.map((c, i) => (
-            <RevealBlock as="li" key={c.etiqueta} className={DESFASE[i]} y={20}>
+        <ul className="mt-24 grid gap-x-12 gap-y-12 sm:grid-cols-3">
+          {site.cifras.map((c) => (
+            <RevealBlock as="li" key={c.etiqueta} y={20}>
               <hr className="hairline w-full" />
               <p className="mt-6 font-display text-num text-bone">
                 <Counter value={c.valor} suffix={c.sufijo} />
               </p>
-              <p className="eyebrow mt-4 text-ash">{c.etiqueta}</p>
+              <p className="eyebrow mt-3 text-ash">{c.etiqueta}</p>
             </RevealBlock>
           ))}
         </ul>

@@ -45,7 +45,7 @@ export function Contacto() {
             href={site.contacto.whatsapp}
             external
             cursorLabel="Escribir"
-            className="group/cta relative block w-full border border-copper/35 px-7 py-9 transition-colors duration-500 hover:border-copper/70 sm:px-12 sm:py-14"
+            className="group/cta relative block w-full border border-copper/35 px-7 py-8 transition-colors duration-500 hover:border-copper/70 sm:px-11 sm:py-10"
           >
             <span
               aria-hidden="true"

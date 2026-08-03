@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useRef } from 'react'
+import { Frame } from '@/components/ui/Frame'
 import { Reveal, RevealBlock, RevealList } from '@/components/ui/Reveal'
 import { areas } from '@/content/areas'
 import { gsap, useGSAP, MOTION_OK } from '@/lib/gsap'
@@ -96,22 +97,17 @@ export function Areas() {
             }}
             className="relative lg:sticky lg:top-0 lg:h-svh"
           >
-            {/* La hairline cobre es el plano de atras asomando 1px por el borde
-                superior recortado. No existe `border` que siga una diagonal, asi
-                que se resuelve apilando dos recortes identicos. */}
-            <div className="swash-frame h-full">
-              <div className="swash-cut h-full bg-copper/40">
-                <div className="swash-cut h-full translate-y-px bg-espresso">
-                  {/* El fondo del plano NO se anima: si se le baja la opacidad
-                      al contenedor que lo pinta, el plano se vuelve traslucido
-                      y se ve el de mas atras. Solo retrocede el contenido. */}
-                  <div
-                    data-plano-contenido
-                    className="h-full origin-top will-change-transform"
-                  >
-                    <PlanoContenido area={area} indice={i} />
-                  </div>
-                </div>
+            {/* Borde recto con una hairline cobre arriba: es lo que marca que
+                un plano se monto sobre el anterior. */}
+            <div className="h-full border-t border-copper/45 bg-espresso">
+              {/* El fondo del plano NO se anima: si se le baja la opacidad al
+                  contenedor que lo pinta, el plano se vuelve traslucido y se ve
+                  el de mas atras. Solo retrocede el contenido. */}
+              <div
+                data-plano-contenido
+                className="h-full origin-top will-change-transform"
+              >
+                <PlanoContenido area={area} indice={i} />
               </div>
             </div>
           </article>
@@ -140,7 +136,9 @@ function PlanoContenido({
           : 'pt-[calc(var(--space-section)+3vw)]'
       }`}
     >
-      <div className="grid gap-x-10 gap-y-10 lg:grid-cols-12">
+      {/* items-start: el numero tiene que alinear con la tapa del titulo, no
+          quedar flotando en el medio de la columna. */}
+      <div className="grid gap-x-12 gap-y-12 lg:grid-cols-12 lg:items-start">
         {/* El numero vive en la banda izquierda, fuera de la caja de texto. */}
         <RevealBlock
           className="font-display text-d2 leading-none text-copper lg:col-span-1"
@@ -149,17 +147,14 @@ function PlanoContenido({
           {area.numero}
         </RevealBlock>
 
-        <div className={esDestacada ? 'lg:col-span-7' : 'lg:col-span-6'}>
-          <Reveal
-            as="h3"
-            className={`text-bone ${esDestacada ? 'text-d1' : 'text-d1'}`}
-          >
+        <div className="lg:col-span-6">
+          <Reveal as="h3" className="text-d1 text-bone">
             {area.titulo}
           </Reveal>
 
           <Reveal
             as="p"
-            className="measure mt-7 text-lead text-bone/75"
+            className="measure mt-6 text-lead text-bone/75"
             stagger={0.05}
           >
             {area.bajada}
@@ -168,14 +163,29 @@ function PlanoContenido({
           {esDestacada && (
             <Reveal
               as="p"
-              className="measure mt-8 font-display text-d3 italic text-copper-light"
+              className="measure mt-6 font-display text-d3 italic text-copper-light"
               stagger={0.05}
             >
               {area.diferencial}
             </Reveal>
           )}
 
-          <RevealBlock className="mt-10" y={14}>
+          {/* Materias: sin bullets. Cada una separada por una hairline. */}
+          <p className="eyebrow mt-9 text-ash">
+            {indice === 1 ? 'Trabajadores y empresas' : 'Qué resolvemos'}
+          </p>
+          <RevealList as="ul" className="mt-4 max-w-lg">
+            {area.materias.slice(0, esDestacada ? 4 : 5).map((m) => (
+              <li
+                key={m}
+                className="border-t border-line py-2 text-body text-bone/70 last:border-b"
+              >
+                {m}
+              </li>
+            ))}
+          </RevealList>
+
+          <RevealBlock className="mt-9" y={14}>
             <Link
               href={`/areas/${area.slug}`}
               data-cursor="label"
@@ -191,25 +201,15 @@ function PlanoContenido({
           </RevealBlock>
         </div>
 
-        {/* Materias: sin bullets. Cada una separada por una hairline. */}
-        <div
-          className={
-            esDestacada ? 'lg:col-span-3 lg:col-start-10' : 'lg:col-span-4 lg:col-start-9'
-          }
-        >
-          <p className="eyebrow text-ash">
-            {indice === 1 ? 'Trabajadores y empresas' : 'Qué resolvemos'}
-          </p>
-          <RevealList as="ul" className="mt-6">
-            {area.materias.slice(0, esDestacada ? 6 : 5).map((m) => (
-              <li
-                key={m}
-                className="border-t border-line py-2.5 text-body text-bone/70 last:border-b"
-              >
-                {m}
-              </li>
-            ))}
-          </RevealList>
+        {/* Imagen de ambiente. Es atmosferica, no documental: no dice que sea
+            un caso ni un lugar del estudio. */}
+        <div className="lg:col-span-4 lg:col-start-9">
+          <Frame
+            src={area.imagen}
+            alt={area.imagenAlt}
+            sizes="(max-width: 1024px) 100vw, 33vw"
+            className="aspect-[4/5] w-full"
+          />
         </div>
       </div>
     </div>

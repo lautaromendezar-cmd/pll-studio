@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { Frame } from '@/components/ui/Frame'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { Monogram } from '@/components/ui/Monogram'
 import { Reveal, RevealBlock, RevealList } from '@/components/ui/Reveal'
@@ -127,6 +128,16 @@ export default async function AreaPage({ params }: Params) {
               </div>
             )}
           </div>
+
+          {/* Imagen de ambiente del area, a lo ancho. Es atmosferica: no afirma
+              ser un caso ni un lugar concreto. */}
+          <Frame
+            src={area.imagen}
+            alt={area.imagenAlt}
+            sizes="100vw"
+            priority
+            className="mt-16 aspect-[16/9] w-full sm:aspect-[21/9]"
+          />
         </div>
       </section>
 
