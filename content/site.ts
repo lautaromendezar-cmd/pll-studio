@@ -1,0 +1,123 @@
+/**
+ * Datos del estudio. Todo lo que se cambia sin tocar componentes vive aca.
+ * Si algo del sitio hay que editar y no esta en este archivo o en sus hermanos
+ * (areas.ts, team.ts, faq.ts, proceso.ts), es un bug.
+ */
+
+const WHATSAPP_NUMERO_INTL = '5491139356458'
+const WHATSAPP_MENSAJE = 'Hola, quisiera hacer una consulta.'
+
+export const site = {
+  nombre: 'PLL Estudio Jurídico',
+  nombreCorto: 'PLL',
+  descripcionCorta:
+    'Estudio jurídico en Monte Grande, Buenos Aires. Más de 30 años en daños, derecho laboral y derecho deportivo.',
+
+  /** Cambiar por el dominio definitivo antes de publicar. Se usa en metadata, sitemap y JSON-LD. */
+  url: 'https://pllestudiojuridico.com.ar',
+
+  contacto: {
+    /** Celular / WhatsApp, tal como se muestra en pantalla. */
+    celular: '11 3935-6458',
+    /** Linea fija del estudio, tal como se muestra en pantalla. */
+    fijo: '(011) 4290-6416',
+    /** Version E.164 para los href="tel:". */
+    celularTel: '+5491139356458',
+    fijoTel: '+541142906416',
+    email: 'pllestudiojuridico@gmail.com',
+    whatsapp: `https://wa.me/${WHATSAPP_NUMERO_INTL}?text=${encodeURIComponent(WHATSAPP_MENSAJE)}`,
+  },
+
+  direccion: {
+    calle: 'Dardo Rocha 123',
+    localidad: 'Monte Grande',
+    partido: 'Esteban Echeverría',
+    provincia: 'Buenos Aires',
+    codigoPostal: 'B1842',
+    pais: 'AR',
+    paisNombre: 'Argentina',
+    /** Monte Grande, Esteban Echeverria. Usado solo en el JSON-LD. */
+    lat: -34.8167,
+    lng: -58.4667,
+  },
+
+  horarios: {
+    texto: 'Lunes a viernes, 09:00 a 18:00',
+    textoCorto: 'Lun a Vie · 09—18 h',
+    /** Formato schema.org. */
+    apertura: '09:00',
+    cierre: '18:00',
+    dias: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+  },
+
+  /**
+   * Redes: los iconos se maquetan igual, pero solo se renderizan las que tengan `href`.
+   * Poner la URL real aca y aparecen solas.
+   */
+  redes: [
+    { nombre: 'Instagram', abrev: 'IG', href: null as string | null }, // TODO: pendiente de cliente
+    { nombre: 'Facebook', abrev: 'FB', href: null as string | null }, // TODO: pendiente de cliente
+    { nombre: 'LinkedIn', abrev: 'IN', href: null as string | null }, // TODO: pendiente de cliente
+  ],
+
+  /** Cifras reales del estudio. No agregar ninguna que no se pueda sostener. */
+  cifras: [
+    { valor: 30, sufijo: '+', etiqueta: 'años de trayectoria' },
+    { valor: 5, sufijo: '', etiqueta: 'abogados' },
+    { valor: 2, sufijo: '', etiqueta: 'colaboradores' },
+  ],
+
+  navegacion: [
+    { label: 'Áreas', href: '/#areas' },
+    { label: 'El proceso', href: '/#proceso' },
+    { label: 'El estudio', href: '/#estudio' },
+    { label: 'Contacto', href: '/#contacto' },
+  ],
+
+  hero: {
+    eyebrow: 'Estudio jurídico · Monte Grande, Buenos Aires',
+    titulo: ['Detrás de cada', 'expediente hay', 'una persona.'],
+    bajada:
+      'Más de 30 años en daños, derecho laboral y derecho deportivo. Asesoramiento claro, trato directo y una estrategia pensada para cada caso.',
+    ctaPrimario: 'Consultar por WhatsApp',
+    ctaSecundario: 'Ver áreas de trabajo',
+  },
+
+  manifiesto: {
+    eyebrow: 'Por qué nos eligen',
+    parrafos: [
+      'Nos eligen por el trato cercano, la comunicación constante y el compromiso con cada caso.',
+      'Explicamos en criollo lo que está en juego, evaluamos con honestidad las posibilidades y planteamos las alternativas antes de iniciar cualquier acción. Esa forma de trabajar, sumada a una estrategia jurídica sólida, construyó relaciones de confianza que duran décadas.',
+    ],
+  },
+
+  alcance: {
+    eyebrow: 'Alcance',
+    titulo: 'Monte Grande como base. El mapa es más grande.',
+    texto:
+      'Trabajamos en toda la Provincia de Buenos Aires y CABA, y con matrícula federal atendemos casos en todo el país. En derecho deportivo, el alcance es internacional. Las consultas pueden ser presenciales en Monte Grande o por videollamada.',
+    anillos: [
+      { label: 'Provincia de Buenos Aires', detalle: 'Zona sur y conurbano' },
+      { label: 'CABA', detalle: 'Fuero civil, laboral y comercial' },
+      { label: 'Todo el país', detalle: 'Matrícula federal' },
+      { label: 'Internacional', detalle: 'Solo derecho deportivo · TAS/CAS' },
+    ],
+  },
+
+  contactoSeccion: {
+    eyebrow: 'Contacto',
+    titulo: 'Contanos qué te pasó.',
+    bajada: 'Escribinos por WhatsApp y te respondemos en horario de atención.',
+  },
+
+  legal: {
+    /**
+     * El cliente confirmo matricula federal pero no envio numero de matricula ni colegio.
+     * No inventar: cuando lo mande, escribirlo aca y aparece en el footer.
+     */
+    matricula: 'Matrícula federal',
+    matriculaNumero: null as string | null,
+  },
+} as const
+
+export type Site = typeof site

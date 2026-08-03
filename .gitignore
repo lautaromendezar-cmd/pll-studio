@@ -1,0 +1,23 @@
+node_modules
+.next
+out
+build
+.DS_Store
+*.pem
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+.env
+.env*.local
+
+.vercel
+next-env.d.ts
+*.tsbuildinfo
+
+# Material de trabajo del cliente. NO se sube: el repo es publico y el
+# cuestionario tiene respuestas que el estudio pidio no publicar.
+# Se guarda local, en la carpeta del proyecto.
+_material/
