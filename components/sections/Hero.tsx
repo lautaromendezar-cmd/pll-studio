@@ -197,10 +197,12 @@ export function Hero() {
             </p>
           </div>
 
+          {/* Los dos CTA en una grilla de columnas iguales: mismo ancho los
+              dos, lado a lado desde `sm` y apilados parejos en angosto. */}
           <div
             data-hero-cta
             data-anim="hidden"
-            className="flex flex-wrap items-center gap-x-9 gap-y-5 lg:col-span-6 lg:justify-end"
+            className="grid w-full gap-4 sm:max-w-2xl sm:grid-cols-2 lg:col-span-6 lg:justify-self-end"
           >
             <MagneticButton
               href={site.contacto.whatsapp}
@@ -209,9 +211,9 @@ export function Hero() {
               // El aro de foco por defecto es cobre y sobre el relleno cobre se
               // pierde. Bone es el unico que se ve contra las dos cosas que
               // toca: 3.05:1 contra el boton y 14:1 contra el fondo espresso.
-              className="eyebrow inline-block bg-copper px-8 py-4.5 text-espresso-deep transition-colors duration-400 hover:bg-copper-light focus-visible:outline-bone"
+              className="eyebrow block bg-copper px-6 py-4.5 text-espresso-deep transition-colors duration-400 hover:bg-copper-light focus-visible:outline-bone"
             >
-              <span className="flex items-center gap-3">
+              <span className="flex items-center justify-center gap-3 whitespace-nowrap">
                 <WhatsappIcon className="h-4 w-4 shrink-0" />
                 {site.hero.ctaPrimario}
               </span>
@@ -225,7 +227,7 @@ export function Hero() {
               }}
               data-cursor="label"
               data-cursor-label="Ver áreas"
-              className="eyebrow group/link relative inline-flex items-center gap-3 border border-bone/30 px-8 py-4.5 text-bone/85 transition-colors duration-400 hover:border-copper hover:text-copper"
+              className="eyebrow group/link relative flex items-center justify-center gap-3 whitespace-nowrap border border-bone/30 px-6 py-4.5 text-bone/85 transition-colors duration-400 hover:border-copper hover:text-copper"
             >
               {site.hero.ctaSecundario}
               <span
