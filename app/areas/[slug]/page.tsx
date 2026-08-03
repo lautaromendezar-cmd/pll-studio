@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Frame } from '@/components/ui/Frame'
 import { MagneticButton } from '@/components/ui/MagneticButton'
-import { Monogram } from '@/components/ui/Monogram'
 import { Reveal, RevealBlock, RevealList } from '@/components/ui/Reveal'
 import { WhatsappIcon } from '@/components/ui/WhatsappIcon'
 import { areas, getArea } from '@/content/areas'
@@ -60,13 +59,24 @@ export default async function AreaPage({ params }: Params) {
         }}
       />
 
-      {/* Encabezado */}
-      <section className="relative overflow-clip bg-espresso pb-[var(--space-section)] pt-40 sm:pt-48">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-[18vw] top-[8vh] w-[70vw] opacity-70 lg:w-[46vw]"
-        >
-          <Monogram tone="ghost" className="h-auto w-full" />
+      {/* Encabezado. La imagen del area va de fondo a sangre, como en los
+          planos de la home: encuadrada abajo del texto leia como una foto
+          pegada. El velo es liviano — la foto tiene que verse — y el degradado
+          deja casi solida la banda izquierda, donde vive todo el texto. El
+          scrim de arriba sostiene la legibilidad del menu fijo. */}
+      <section className="relative isolate flex min-h-svh flex-col justify-center overflow-clip bg-espresso pb-[var(--space-section)] pt-40 sm:pt-48">
+        <div aria-hidden="true" className="absolute inset-0 -z-10">
+          <Image
+            src={area.imagen}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-espresso/35" />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-espresso)_0%,var(--color-espresso)_34%,color-mix(in_srgb,var(--color-espresso)_78%,transparent)_55%,color-mix(in_srgb,var(--color-espresso)_42%,transparent)_100%)]" />
+          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-espresso/85 to-transparent" />
         </div>
 
         <div className="shell relative">
@@ -126,16 +136,6 @@ export default async function AreaPage({ params }: Params) {
               </div>
             )}
           </div>
-
-          {/* Imagen de ambiente del area, a lo ancho. Es atmosferica: no afirma
-              ser un caso ni un lugar concreto. */}
-          <Frame
-            src={area.imagen}
-            alt={area.imagenAlt}
-            sizes="100vw"
-            priority
-            className="mt-16 aspect-[16/9] w-full sm:aspect-[21/9]"
-          />
         </div>
       </section>
 
