@@ -91,8 +91,9 @@ export const site = {
 
   manifiesto: {
     eyebrow: 'Por qué nos eligen',
+    /** Lo que va entre asteriscos se pinta en cobre. */
     parrafos: [
-      'Nos eligen por el trato cercano, la comunicación constante y el compromiso con cada caso.',
+      'Nos eligen por el *trato cercano*, la *comunicación constante* y el *compromiso* con cada caso.',
       'Explicamos en criollo lo que está en juego, evaluamos con honestidad las posibilidades y planteamos las alternativas antes de iniciar cualquier acción. Esa forma de trabajar, sumada a una estrategia jurídica sólida, construyó relaciones de confianza que duran décadas.',
     ],
   },

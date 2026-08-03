@@ -7,7 +7,7 @@ import {
   PATH_WORDMARK,
 } from '@/lib/monogram-paths'
 
-type Tone = 'onDark' | 'onLight' | 'ghost' | 'copper'
+type Tone = 'onDark' | 'onLight' | 'ghost' | 'ghostOnBone' | 'copper'
 
 const TONES: Record<Tone, { letra: string; acento: string }> = {
   // Dorso de la tarjeta: P y L italica en bone, L recta en cobre.
@@ -16,6 +16,9 @@ const TONES: Record<Tone, { letra: string; acento: string }> = {
   onLight: { letra: 'fill-espresso', acento: 'fill-copper' },
   // Marca de agua del hero: apenas un tono por encima del fondo.
   ghost: { letra: 'fill-espresso-deep', acento: 'fill-espresso-deep' },
+  // Marca de agua sobre los bloques bone. La L recta va un pelo mas marcada
+  // y en cobre: es el trazo compartido del logo asomando, no un sello gris.
+  ghostOnBone: { letra: 'fill-espresso/5', acento: 'fill-copper/15' },
   copper: { letra: 'fill-copper', acento: 'fill-copper' },
 }
 
