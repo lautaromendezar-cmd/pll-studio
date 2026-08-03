@@ -162,10 +162,10 @@ que se corrigió es que competían con el contenido en vez de introducirlo.
 │  01 ── 02 ── 03 ── 04   pin + scrub. Numeración en Sentient    │
 │  a 8rem, texto chico al lado. Línea de progreso cobre.         │
 ├────────────────────────────────────────────────────────────────┤
-│  ALCANCE                          ╱  arcos concéntricos SVG    │  grilla rota: texto 5
-│  Trabajamos en toda la PBA...    ╱   desde Monte Grande        │  cols izq, diagrama
-│                                 ╱    (PBA / CABA / país /      │  desbordando por der.
-│                                      internacional)            │
+│  ALCANCE                          ▒▒ mapa mundial de puntos    │  grilla rota: texto 6
+│  Trabajamos en toda la PBA...     ▒▒ Argentina en cobre,       │  cols izq, mapa
+│                                   ▒▒ marca en Monte Grande     │  desbordando por der.
+│                                      (rev. 3: antes arcos)     │
 ├────────────────────────────────────────────────────────────────┤
 │  EL ESTUDIO                                                    │
 │   Dr. Diego Fernando Pérez ─────────────────────  30+  años    │  números a distinta
