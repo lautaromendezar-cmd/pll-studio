@@ -67,8 +67,14 @@ export const site = {
     { valor: 2, sufijo: '', etiqueta: 'colaboradores' },
   ],
 
+  /**
+   * Las tres areas van con nombre propio en el menu: el visitante tiene que
+   * ver de entrada que el estudio trabaja tres frentes, no un "Areas" generico.
+   */
   navegacion: [
-    { label: 'Áreas', href: '/#areas' },
+    { label: 'Daños', href: '/areas/danos-civil-y-comercial' },
+    { label: 'Laboral', href: '/areas/laboral' },
+    { label: 'Deportivo', href: '/areas/deportivo' },
     { label: 'El proceso', href: '/#proceso' },
     { label: 'El estudio', href: '/#estudio' },
     { label: 'Contacto', href: '/#contacto' },

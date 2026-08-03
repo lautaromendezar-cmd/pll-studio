@@ -144,8 +144,8 @@ function PlanoFondo({ area }: { area: (typeof areas)[number] }) {
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-espresso/55" />
-      <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-espresso)_0%,var(--color-espresso)_38%,color-mix(in_srgb,var(--color-espresso)_82%,transparent)_58%,color-mix(in_srgb,var(--color-espresso)_35%,transparent)_100%)]" />
+      <div className="absolute inset-0 bg-espresso/30" />
+      <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-espresso)_0%,var(--color-espresso)_36%,color-mix(in_srgb,var(--color-espresso)_72%,transparent)_54%,color-mix(in_srgb,var(--color-espresso)_15%,transparent)_100%)]" />
     </div>
   )
 }
@@ -223,7 +223,7 @@ function PlanoContenido({
               href={`/areas/${area.slug}`}
               data-cursor="label"
               data-cursor-label="Ver área"
-              className="group/area eyebrow inline-flex items-center gap-4 border-b border-line pb-3 text-bone transition-colors duration-300 hover:border-copper hover:text-copper"
+              className="group/area eyebrow inline-flex items-center gap-4 border border-bone/30 px-7 py-4 text-bone transition-colors duration-400 hover:border-copper hover:text-copper"
             >
               Ver el área completa
               <span

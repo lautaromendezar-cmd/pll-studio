@@ -5,6 +5,7 @@ import { Frame } from '@/components/ui/Frame'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { Monogram } from '@/components/ui/Monogram'
 import { Reveal, RevealBlock, RevealList } from '@/components/ui/Reveal'
+import { WhatsappIcon } from '@/components/ui/WhatsappIcon'
 import { areas, getArea } from '@/content/areas'
 import { site } from '@/content/site'
 import { jsonLdArea, jsonLdBreadcrumb, jsonLdScript } from '@/lib/jsonld'
@@ -106,13 +107,10 @@ export default async function AreaPage({ params }: Params) {
                 rel="noopener noreferrer"
                 data-cursor="label"
                 data-cursor-label="Escribir"
-                className="group/wa eyebrow mt-10 inline-flex items-center gap-4 border-b border-line pb-3 text-bone transition-colors duration-300 hover:border-copper hover:text-copper"
+                className="eyebrow mt-10 inline-flex items-center gap-3 border border-copper/45 px-7 py-4 text-copper transition-colors duration-400 hover:bg-copper hover:text-espresso-deep"
               >
+                <WhatsappIcon className="h-4 w-4 shrink-0" />
                 Consultar por WhatsApp
-                <span
-                  aria-hidden="true"
-                  className="block h-px w-10 bg-copper transition-[width] duration-500 ease-[var(--ease-out-expo)] group-hover/wa:w-16"
-                />
               </a>
             </div>
             {area.situacion && (

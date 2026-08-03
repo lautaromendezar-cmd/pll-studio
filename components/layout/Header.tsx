@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Monogram } from '@/components/ui/Monogram'
+import { WhatsappIcon } from '@/components/ui/WhatsappIcon'
 import { site } from '@/content/site'
 import { getLenis, scrollToTarget } from '@/lib/lenis'
 
@@ -94,9 +95,11 @@ export function Header() {
             />
           </Link>
 
+          {/* Con las tres areas sumadas, el menu entra recien en `lg`: en
+              tablet los seis items mas el boton pisaban el monograma. */}
           <nav
             aria-label="Principal"
-            className="hidden items-center gap-9 md:flex"
+            className="hidden items-center gap-8 lg:flex"
           >
             {site.navegacion.map((item) => (
               <Link
@@ -114,8 +117,9 @@ export function Header() {
               rel="noopener noreferrer"
               data-cursor="label"
               data-cursor-label="Escribir"
-              className="eyebrow border border-copper/45 px-5 py-2.5 text-copper transition-colors duration-400 hover:bg-copper hover:text-espresso-deep"
+              className="eyebrow flex items-center gap-2.5 border border-copper/45 px-5 py-2.5 text-copper transition-colors duration-400 hover:bg-copper hover:text-espresso-deep"
             >
+              <WhatsappIcon className="h-4 w-4 shrink-0" />
               WhatsApp
             </a>
           </nav>
@@ -126,7 +130,7 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="menu-movil"
-            className="relative z-10 flex h-11 w-11 items-center justify-center md:hidden"
+            className="relative z-10 flex h-11 w-11 items-center justify-center lg:hidden"
           >
             <span className="sr-only">{open ? 'Cerrar menú' : 'Abrir menú'}</span>
             <span aria-hidden="true" className="relative block h-3 w-7">
@@ -161,7 +165,7 @@ export function Header() {
         id="menu-movil"
         ref={panelRef}
         inert={!open || undefined}
-        className={`fixed inset-0 z-40 flex flex-col justify-end bg-espresso-deep px-6 pb-12 pt-28 transition-[opacity,visibility,clip-path] duration-700 ease-[var(--ease-in-out-quart)] md:hidden ${
+        className={`fixed inset-0 z-40 flex flex-col justify-end bg-espresso-deep px-6 pb-12 pt-28 transition-[opacity,visibility,clip-path] duration-700 ease-[var(--ease-in-out-quart)] lg:hidden ${
           open
             ? 'visible opacity-100 [clip-path:inset(0_0_0%_0)]'
             : 'invisible opacity-0 [clip-path:inset(0_0_100%_0)]'
@@ -191,7 +195,10 @@ export function Header() {
           rel="noopener noreferrer"
           className="eyebrow mt-10 flex items-center justify-between border border-copper/45 px-6 py-5 text-copper"
         >
-          Consultar por WhatsApp
+          <span className="flex items-center gap-3">
+            <WhatsappIcon className="h-4.5 w-4.5 shrink-0" />
+            Consultar por WhatsApp
+          </span>
           <span aria-hidden="true">→</span>
         </a>
 

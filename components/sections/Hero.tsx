@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRef } from 'react'
 import { Monogram } from '@/components/ui/Monogram'
 import { MagneticButton } from '@/components/ui/MagneticButton'
+import { WhatsappIcon } from '@/components/ui/WhatsappIcon'
 import { site } from '@/content/site'
 import { gsap, useGSAP, MOTION_OK, MOTION_REDUCED } from '@/lib/gsap'
 import { onIntroDone } from '@/lib/intro'
@@ -136,8 +137,8 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-right"
         />
-        <div className="absolute inset-0 bg-espresso/70" />
-        <div className="absolute inset-0 bg-[radial-gradient(125%_90%_at_80%_22%,transparent_0%,var(--color-espresso)_45%,var(--color-espresso-deep)_85%)]" />
+        <div className="absolute inset-0 bg-espresso/45" />
+        <div className="absolute inset-0 bg-[radial-gradient(125%_90%_at_80%_22%,transparent_18%,color-mix(in_srgb,var(--color-espresso)_88%,transparent)_58%,var(--color-espresso-deep)_96%)]" />
       </div>
 
       {/* Capa 2 — el monograma. Sangra por derecha y por abajo a proposito:
@@ -210,7 +211,10 @@ export function Hero() {
               // toca: 3.05:1 contra el boton y 14:1 contra el fondo espresso.
               className="eyebrow inline-block bg-copper px-8 py-4.5 text-espresso-deep transition-colors duration-400 hover:bg-copper-light focus-visible:outline-bone"
             >
-              {site.hero.ctaPrimario}
+              <span className="flex items-center gap-3">
+                <WhatsappIcon className="h-4 w-4 shrink-0" />
+                {site.hero.ctaPrimario}
+              </span>
             </MagneticButton>
 
             <a
@@ -221,7 +225,7 @@ export function Hero() {
               }}
               data-cursor="label"
               data-cursor-label="Ver áreas"
-              className="eyebrow group/link relative inline-flex items-center gap-3 py-2 text-bone/80 transition-colors duration-300 hover:text-bone"
+              className="eyebrow group/link relative inline-flex items-center gap-3 border border-bone/30 px-8 py-4.5 text-bone/85 transition-colors duration-400 hover:border-copper hover:text-copper"
             >
               {site.hero.ctaSecundario}
               <span

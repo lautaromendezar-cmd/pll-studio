@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { gsap, useGSAP, ScrollTrigger, MOTION_OK, MOTION_REDUCED } from '@/lib/gsap'
+import { WhatsappIcon } from '@/components/ui/WhatsappIcon'
 import { site } from '@/content/site'
 
 /**
@@ -72,10 +73,7 @@ export function WhatsappFab() {
       rel="noopener noreferrer"
       className="eyebrow invisible fixed bottom-5 right-5 z-40 flex items-center gap-2.5 border border-copper/50 bg-espresso-deep/95 px-5 py-3.5 text-copper backdrop-blur-sm md:hidden"
     >
-      <span
-        aria-hidden="true"
-        className="block h-1.5 w-1.5 rounded-full bg-copper"
-      />
+      <WhatsappIcon className="h-4 w-4 shrink-0" />
       Consultar
       <span className="sr-only"> por WhatsApp</span>
     </a>
