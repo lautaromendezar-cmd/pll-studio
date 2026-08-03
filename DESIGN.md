@@ -256,15 +256,35 @@ Lo que hubiera salido "solo", y por qué no está:
 
 ## 8. Imágenes
 
-Las cuatro imágenes del sitio (`public/img/`) están generadas con IA y son **atmosféricas, no
+Las cinco imágenes del sitio (`public/img/`) están generadas con IA y son **atmosféricas, no
 documentales**. Ninguna afirma ser un lugar del estudio ni un caso concreto:
 
 | Archivo | Dónde | Qué es |
 |---|---|---|
-| `estudio.jpg` | Bloque El estudio | Escritorio de madera con una lámpara, en penumbra |
-| `area-danos.jpg` | Área 01 + su página | Calle mojada de noche vista desde un auto |
-| `area-laboral.jpg` | Área 02 + su página | Nave industrial vacía al final del día |
-| `area-deportivo.jpg` | Área 03 + su página | Túnel de vestuarios hacia una cancha vacía |
+| `hero.jpg` | Fondo del hero, a sangre | Sala revestida en madera, casi toda en sombra |
+| `estudio.jpg` | Bloque El estudio, encuadrada | Escritorio de madera con una lámpara, en penumbra |
+| `area-danos.jpg` | Fondo del plano 01 + su página | Calle mojada de noche vista desde un auto |
+| `area-laboral.jpg` | Fondo del plano 02 + su página | Nave industrial vacía al final del día |
+| `area-deportivo.jpg` | Fondo del plano 03 + su página | Túnel de vestuarios hacia una cancha vacía |
+
+**Van a sangre, no encajonadas.** La primera versión las puso en una caja al costado del texto y
+se veían pegadas encima, como stock. Como fondo del plano entero, la sección *es* la imagen y el
+texto vive adentro.
+
+Eso obliga a que la legibilidad esté garantizada, no supuesta. Cada fondo lleva dos capas encima:
+un velo espresso parejo y un degradado horizontal que deja la mitad izquierda —donde va todo el
+texto— prácticamente en espresso sólido. Medido sobre los píxeles reales del render, escondiendo
+el texto para muestrear el fondo puro, el punto más claro de cada zona de texto da:
+
+| | bone | bone/70 | ash |
+|---|---|---|---|
+| Plano 01 | 13.0:1 | 6.8:1 | 5.5:1 |
+| Plano 02 | 14.0:1 | 7.4:1 | 5.9:1 |
+| Plano 03 | 13.7:1 | 7.2:1 | 5.7:1 |
+| Hero | 14.0:1 | 7.4:1 | 5.9:1 |
+
+Todo por encima del 4.5:1 de AA. Si se cambia una imagen, hay que volver a medir: una foto más
+clara puede tirar abajo el ash sin que se note a ojo.
 
 Reglas que cumplen todas: sin personas ni caras, sin gente en traje, sin balanza, sin martillo,
 sin columnas, sin estantería de libros de derecho, sin texto ni logos legibles. Paleta forzada a

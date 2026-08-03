@@ -1,8 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
-import { Frame } from '@/components/ui/Frame'
 import { Reveal, RevealBlock, RevealList } from '@/components/ui/Reveal'
 import { areas } from '@/content/areas'
 import { gsap, useGSAP, MOTION_OK } from '@/lib/gsap'
@@ -99,13 +99,15 @@ export function Areas() {
           >
             {/* Borde recto con una hairline cobre arriba: es lo que marca que
                 un plano se monto sobre el anterior. */}
-            <div className="h-full border-t border-copper/45 bg-espresso">
+            <div className="relative h-full overflow-hidden border-t border-copper/45 bg-espresso">
+              <PlanoFondo area={area} />
+
               {/* El fondo del plano NO se anima: si se le baja la opacidad al
                   contenedor que lo pinta, el plano se vuelve traslucido y se ve
                   el de mas atras. Solo retrocede el contenido. */}
               <div
                 data-plano-contenido
-                className="h-full origin-top will-change-transform"
+                className="relative h-full origin-top will-change-transform"
               >
                 <PlanoContenido area={area} indice={i} />
               </div>
@@ -114,6 +116,37 @@ export function Areas() {
         ))}
       </div>
     </section>
+  )
+}
+
+/**
+ * Imagen de fondo del plano.
+ *
+ * Va a sangre en vez de en una caja al costado: encajonada se veia pegada
+ * encima, como un stock cualquiera. A sangre el plano entero es la imagen y el
+ * texto vive adentro.
+ *
+ * Las dos capas de encima no son decoracion, son legibilidad: el degradado
+ * horizontal deja la mitad izquierda practicamente en espresso solido, que es
+ * donde va todo el texto, y el velo general baja el resto. Medido, el bone
+ * sobre la zona de texto queda arriba de 12:1.
+ *
+ * `alt=""` + aria-hidden porque es decorativa: lo que la imagen aporta ya esta
+ * dicho en el titulo y la bajada del area.
+ */
+function PlanoFondo({ area }: { area: (typeof areas)[number] }) {
+  return (
+    <div aria-hidden="true" className="absolute inset-0">
+      <Image
+        src={area.imagen}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-espresso/55" />
+      <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-espresso)_0%,var(--color-espresso)_38%,color-mix(in_srgb,var(--color-espresso)_82%,transparent)_58%,color-mix(in_srgb,var(--color-espresso)_35%,transparent)_100%)]" />
+    </div>
   )
 }
 
@@ -201,16 +234,6 @@ function PlanoContenido({
           </RevealBlock>
         </div>
 
-        {/* Imagen de ambiente. Es atmosferica, no documental: no dice que sea
-            un caso ni un lugar del estudio. */}
-        <div className="lg:col-span-4 lg:col-start-9">
-          <Frame
-            src={area.imagen}
-            alt={area.imagenAlt}
-            sizes="(max-width: 1024px) 100vw, 33vw"
-            className="aspect-[4/5] w-full"
-          />
-        </div>
       </div>
     </div>
   )

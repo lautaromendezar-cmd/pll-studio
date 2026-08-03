@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef } from 'react'
 import { Monogram } from '@/components/ui/Monogram'
 import { MagneticButton } from '@/components/ui/MagneticButton'
@@ -121,13 +122,23 @@ export function Hero() {
       ref={root}
       className="relative isolate flex min-h-svh flex-col justify-end overflow-clip pb-14 pt-32 sm:pb-20"
     >
-      {/* Capa 1 — el fondo. Un solo degradado tibio, sin textura de ruido:
-          el grano sobre espresso a esta escala solo agrega peso al bundle. */}
-      <div
-        data-hero-bg
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[radial-gradient(120%_85%_at_78%_18%,var(--color-espresso)_0%,var(--color-espresso-deep)_78%)]"
-      />
+      {/* Capa 1 — el fondo: la foto a sangre, con dos velos encima.
+          Los velos no son decoracion, son legibilidad: la foto ya es casi toda
+          sombra, pero sobre el area del titular hace falta garantizar espresso
+          practicamente solido. La luz calida de la foto queda del lado derecho,
+          justo donde entra el monograma. */}
+      <div data-hero-bg aria-hidden="true" className="absolute inset-0 -z-20">
+        <Image
+          src="/img/hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-right"
+        />
+        <div className="absolute inset-0 bg-espresso/70" />
+        <div className="absolute inset-0 bg-[radial-gradient(125%_90%_at_80%_22%,transparent_0%,var(--color-espresso)_45%,var(--color-espresso-deep)_85%)]" />
+      </div>
 
       {/* Capa 2 — el monograma. Sangra por derecha y por abajo a proposito:
           no entra entero, y esa es la idea. */}
