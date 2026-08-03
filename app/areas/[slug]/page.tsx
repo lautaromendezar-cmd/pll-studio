@@ -74,9 +74,9 @@ export default async function AreaPage({ params }: Params) {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-espresso/35" />
-          <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-espresso)_0%,var(--color-espresso)_34%,color-mix(in_srgb,var(--color-espresso)_78%,transparent)_55%,color-mix(in_srgb,var(--color-espresso)_42%,transparent)_100%)]" />
-          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-espresso/85 to-transparent" />
+          <div className="absolute inset-0 bg-espresso/15" />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-espresso)_0%,var(--color-espresso)_30%,color-mix(in_srgb,var(--color-espresso)_62%,transparent)_52%,color-mix(in_srgb,var(--color-espresso)_22%,transparent)_100%)]" />
+          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-espresso/70 to-transparent" />
         </div>
 
         <div className="shell relative">

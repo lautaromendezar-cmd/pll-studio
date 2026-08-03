@@ -172,8 +172,8 @@ function PlanoFondo({ area }: { area: (typeof areas)[number] }) {
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-espresso/30" />
-      <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-espresso)_0%,var(--color-espresso)_36%,color-mix(in_srgb,var(--color-espresso)_72%,transparent)_54%,color-mix(in_srgb,var(--color-espresso)_15%,transparent)_100%)]" />
+      <div className="absolute inset-0 bg-espresso/15" />
+      <div className="absolute inset-0 bg-[linear-gradient(100deg,var(--color-espresso)_0%,var(--color-espresso)_30%,color-mix(in_srgb,var(--color-espresso)_60%,transparent)_50%,color-mix(in_srgb,var(--color-espresso)_8%,transparent)_100%)]" />
     </div>
   )
 }

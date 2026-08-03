@@ -137,8 +137,8 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-right"
         />
-        <div className="absolute inset-0 bg-espresso/45" />
-        <div className="absolute inset-0 bg-[radial-gradient(125%_90%_at_80%_22%,transparent_18%,color-mix(in_srgb,var(--color-espresso)_88%,transparent)_58%,var(--color-espresso-deep)_96%)]" />
+        <div className="absolute inset-0 bg-espresso/25" />
+        <div className="absolute inset-0 bg-[radial-gradient(125%_90%_at_80%_22%,transparent_30%,color-mix(in_srgb,var(--color-espresso)_76%,transparent)_62%,var(--color-espresso-deep)_100%)]" />
       </div>
 
       {/* Capa 2 — el monograma. Sangra por derecha y por abajo a proposito:

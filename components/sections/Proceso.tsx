@@ -125,7 +125,7 @@ export function Proceso() {
                   />
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 bg-[linear-gradient(to_top,var(--color-espresso)_0%,color-mix(in_srgb,var(--color-espresso)_35%,transparent)_45%,transparent_75%)]"
+                    className="absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_srgb,var(--color-espresso)_85%,transparent)_0%,color-mix(in_srgb,var(--color-espresso)_25%,transparent)_40%,transparent_68%)]"
                   />
                   <span
                     aria-hidden="true"
