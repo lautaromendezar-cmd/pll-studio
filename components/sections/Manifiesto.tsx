@@ -66,7 +66,15 @@ export function Manifiesto() {
               className="mt-9 max-w-[12ch] font-display text-d0 text-espresso"
               stagger={0.07}
             >
-              {conDestacados(site.manifiesto.parrafos[0])}
+              {conDestacados(site.manifiesto.frase)}
+            </Reveal>
+
+            <Reveal
+              as="p"
+              className="measure mt-10 text-lead text-espresso/75"
+              stagger={0.05}
+            >
+              {site.manifiesto.parrafo}
             </Reveal>
           </div>
 
@@ -80,7 +88,7 @@ export function Manifiesto() {
               <hr className="hairline w-16" />
             </RevealBlock>
             <Reveal as="p" className="mt-7 text-lead text-espresso/75">
-              {site.manifiesto.parrafos[1]}
+              {site.manifiesto.apoyo}
             </Reveal>
           </div>
         </div>

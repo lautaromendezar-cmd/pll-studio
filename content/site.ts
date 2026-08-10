@@ -89,13 +89,21 @@ export const site = {
     ctaSecundario: 'Ver áreas de trabajo',
   },
 
+  /**
+   * El bloque de filosofia. Es el unico lugar donde el estudio habla de si
+   * mismo, asi que todo lo que suene a "como trabajamos" tiene que vivir aca:
+   * repartido en dos secciones se repite con otras palabras.
+   */
   manifiesto: {
-    eyebrow: 'Por qué nos eligen',
-    /** Lo que va entre asteriscos se pinta en cobre. */
-    parrafos: [
-      'Confianza que se construye *con hechos*.',
-      'Cada consulta recibe un análisis serio, una respuesta honesta y una estrategia cuidadosamente diseñada. Mantenemos una comunicación clara durante todo el proceso porque entendemos que una buena defensa también consiste en que el cliente sepa, en cada etapa, dónde está parado.',
-    ],
+    eyebrow: 'Nuestra filosofía',
+    /** La frase grande. Lo que va entre asteriscos se pinta en cobre. */
+    frase: 'Confianza que se construye *con hechos*.',
+    /** Va bajo la frase, en la columna ancha. */
+    parrafo:
+      'Creemos que un buen asesoramiento jurídico no consiste únicamente en conocer la ley. Consiste en comprender el problema, analizar sus implicancias y diseñar una estrategia que proteja los intereses del cliente con rigor técnico y claridad.',
+    /** Columna angosta, desfasada hacia abajo. */
+    apoyo:
+      'En PLL entendemos que cada caso es único. Por eso evitamos las respuestas estandarizadas y trabajamos de forma personalizada, acompañando cada decisión con un análisis serio y una comunicación transparente.',
   },
 
   /**
