@@ -111,7 +111,7 @@ export const site = {
     eyebrow: 'Alcance',
     titulo: 'Monte Grande como base. El mapa es más grande.',
     texto:
-      'Trabajamos en toda la Provincia de Buenos Aires y CABA, y con matrícula federal atendemos casos en todo el país. En derecho deportivo, el alcance es internacional. Las consultas pueden ser presenciales en Monte Grande o por videollamada.',
+      'Con sede en Monte Grande, representamos a clientes en la Provincia de Buenos Aires y en la Ciudad Autónoma de Buenos Aires. Gracias a nuestra matrícula federal, intervenimos en asuntos en todo el país y, en materia de derecho deportivo, también en el ámbito internacional. Las consultas pueden realizarse de manera presencial o por videoconferencia.',
     anillos: [
       { label: 'Provincia de Buenos Aires', detalle: 'Zona sur y conurbano' },
       { label: 'CABA', detalle: 'Fuero civil, laboral y comercial' },
