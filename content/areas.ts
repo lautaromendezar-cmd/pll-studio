@@ -37,7 +37,7 @@ export const areas: Area[] = [
     tituloCorto: 'Daños y civil',
     tituloLineas: ['Daños,', 'civil y', 'comercial'],
     bajada:
-      'Cuando un accidente, un contrato incumplido o un patrimonio en riesgo necesitan una respuesta.',
+      'Protegemos los derechos y el patrimonio de nuestros clientes mediante estrategias jurídicas sólidas, tanto en la prevención de conflictos como en su resolución judicial.',
     cuerpo: [
       'Accidentes de tránsito, daños y perjuicios, responsabilidad civil, incumplimientos contractuales, sucesiones, ejecuciones, cobro de pesos, desalojos, prescripción adquisitiva y reclamos por daño material y moral.',
       'Diseñamos la estrategia según el caso, con el objetivo de proteger el patrimonio y obtener la mayor indemnización posible.',
@@ -47,15 +47,15 @@ export const areas: Area[] = [
     diferencial:
       'Cada caso de daños se arma distinto. Lo que define el resultado no es el reclamo, es cómo se prueba.',
     materias: [
-      'Accidentes de tránsito',
-      'Daños y perjuicios',
+      'Accidentes de tránsito y siniestros viales',
       'Responsabilidad civil',
+      'Daños y perjuicios',
       'Incumplimientos contractuales',
+      'Defensa del consumidor',
       'Sucesiones',
-      'Ejecuciones y cobro de pesos',
-      'Desalojos',
-      'Prescripción adquisitiva',
-      'Daño material y moral',
+      'Cobro y ejecución de créditos',
+      'Medidas cautelares',
+      'Conflictos patrimoniales',
     ],
     imagen: '/img/area-danos.jpg',
     imagenAlt:
@@ -70,7 +70,8 @@ export const areas: Area[] = [
     titulo: 'Laboral',
     tituloCorto: 'Laboral',
     tituloLineas: ['Derecho', 'laboral'],
-    bajada: 'Para trabajadores y para empresas. Los dos lados del mostrador.',
+    bajada:
+      'Asesoramos tanto a trabajadores como a empresas, con una visión integral de las relaciones laborales y una estrategia adaptada a cada conflicto.',
     cuerpo: [
       'Accidentes de trabajo, enfermedades profesionales, despidos y reclamos salariales.',
     ],
@@ -89,11 +90,13 @@ export const areas: Area[] = [
     diferencial:
       'El expediente laboral se gana o se pierde en los primeros quince días, cuando todavía no hay abogado de por medio.',
     materias: [
-      'Accidentes de trabajo',
+      'Accidentes de trabajo (ART)',
       'Enfermedades profesionales',
-      'Despidos',
-      'Reclamos salariales',
-      'Asesoramiento a empresas',
+      'Despidos y extinción del vínculo laboral',
+      'Diferencias salariales',
+      'Asesoramiento preventivo a empresas',
+      'Negociaciones laborales',
+      'Representación judicial',
     ],
     imagen: '/img/area-laboral.jpg',
     imagenAlt:
@@ -108,20 +111,28 @@ export const areas: Area[] = [
     titulo: 'Derecho deportivo',
     tituloCorto: 'Deportivo',
     tituloLineas: ['Derecho', 'deportivo'],
-    bajada: 'Una rama con reglas propias. Y un posgrado que las conoce.',
+    bajada:
+      'El derecho deportivo exige conocer un sistema jurídico con reglas, organismos y procedimientos propios. Brindamos asesoramiento estratégico a deportistas, clubes, representantes e instituciones en conflictos y negociaciones vinculados a la actividad deportiva.',
     cuerpo: [
       'Asesoramos a deportistas, clubes, asociaciones, federaciones, entrenadores y representantes. Redacción, revisión y negociación de contratos deportivos.',
       'Conflictos contractuales, procedimientos disciplinarios, transferencias, reclamos por derechos económicos y de formación, arbitrajes y actuación ante tribunales deportivos nacionales e internacionales, incluido el Tribunal Arbitral del Deporte (TAS/CAS).',
     ],
+    /**
+     * Arrancaba con "El derecho deportivo tiene normas, reglamentos y
+     * procedimientos propios", que ahora dice casi textual la bajada nueva del
+     * cliente. Se saco esa primera oracion: el diferencial es el posgrado.
+     */
     diferencial:
-      'El derecho deportivo tiene normas, reglamentos y procedimientos propios. El posgrado del Dr. Pérez aporta el entendimiento del funcionamiento interno de asociaciones, federaciones y tribunales deportivos, y de los mecanismos de resolución de conflictos de la actividad.',
+      'El posgrado del Dr. Pérez aporta el entendimiento del funcionamiento interno de asociaciones, federaciones y tribunales deportivos, y de los mecanismos de resolución de conflictos de la actividad.',
     materias: [
       'Contratos deportivos',
       'Transferencias',
-      'Derechos económicos y de formación',
+      // TODO: el cliente lo mando cortado ("Derechos económicos…"). Confirmar si
+      // va asi o si es "Derechos económicos y de formación", como decia antes.
+      'Derechos económicos',
       'Procedimientos disciplinarios',
-      'Arbitrajes deportivos',
-      'Tribunal Arbitral del Deporte (TAS/CAS)',
+      'Representación ante asociaciones y federaciones',
+      'Asesoramiento a clubes y deportistas',
     ],
     imagen: '/img/area-deportivo.jpg',
     imagenAlt:
