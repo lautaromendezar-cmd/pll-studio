@@ -43,20 +43,19 @@ export const proceso: Paso[] = [
       'Cuando el proceso judicial resulta necesario, asumimos la representación integral del caso y mantenemos una comunicación clara durante cada etapa.',
     imagen: '/img/proceso-demanda.jpg',
   },
-  // TODO: faltan las dos imagenes de estas etapas. Cuando esten, agregar
-  // `imagen: '/img/proceso-resolucion.jpg'` y '/img/proceso-prevencion.jpg' y
-  // el panel vuelve solo al tratamiento con foto.
   {
     numero: '05',
     titulo: 'Resolución y seguimiento',
     texto:
       'Una vez finalizado el conflicto, acompañamos la ejecución de la sentencia o del acuerdo hasta su efectivo cumplimiento.',
+    imagen: '/img/proceso-resolucion.jpg',
   },
   {
     numero: '06',
     titulo: 'Prevención y asesoramiento continuo',
     texto:
       'El mejor litigio suele ser el que puede evitarse mediante un asesoramiento oportuno.',
+    imagen: '/img/proceso-prevencion.jpg',
   },
 ]
 
