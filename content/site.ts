@@ -98,6 +98,15 @@ export const site = {
     ],
   },
 
+  /**
+   * Apertura de la seccion de areas. El titular se parte en lineas a mano: cada
+   * frase arranca en renglon propio, no se deja al wrap.
+   */
+  areasSeccion: {
+    eyebrow: 'Áreas de trabajo',
+    titulo: ['Tres áreas de práctica.', 'Un mismo estándar de excelencia.'],
+  },
+
   alcance: {
     eyebrow: 'Alcance',
     titulo: 'Monte Grande como base. El mapa es más grande.',

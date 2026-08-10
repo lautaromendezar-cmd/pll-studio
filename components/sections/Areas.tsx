@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRef } from 'react'
 import { Reveal, RevealBlock, RevealList } from '@/components/ui/Reveal'
 import { areas } from '@/content/areas'
+import { site } from '@/content/site'
 import { gsap, useGSAP, MOTION_OK } from '@/lib/gsap'
 
 /**
@@ -84,14 +85,18 @@ export function Areas() {
                 aria-hidden="true"
                 className="mt-[0.55em] block h-1 w-1 shrink-0 rounded-full bg-copper"
               />
-              Áreas de trabajo
+              {site.areasSeccion.eyebrow}
             </h2>
             <Reveal
               as="p"
-              className="mt-9 max-w-[20ch] font-display text-d1 text-bone"
+              className="mt-9 max-w-[24ch] font-display text-d1 text-bone"
               stagger={0.07}
             >
-              Tres áreas. La misma forma de trabajar en las tres.
+              {site.areasSeccion.titulo.map((linea) => (
+                <span key={linea} className="block">
+                  {linea}
+                </span>
+              ))}
             </Reveal>
           </div>
 
