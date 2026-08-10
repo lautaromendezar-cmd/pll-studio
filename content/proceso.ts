@@ -61,4 +61,4 @@ export const proceso: Paso[] = [
 ]
 
 export const procesoCierre =
-  'No tenés que preocuparte por lo técnico. De eso nos ocupamos nosotros.'
+  'Usted ocúpese de sus proyectos. Nosotros nos ocupamos de proteger sus derechos.'
