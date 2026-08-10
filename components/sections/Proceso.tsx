@@ -3,11 +3,11 @@
 import Image from 'next/image'
 import { useRef } from 'react'
 import { Reveal } from '@/components/ui/Reveal'
-import { proceso, procesoCierre } from '@/content/proceso'
+import { proceso, procesoCierre, procesoIntro } from '@/content/proceso'
 import { gsap, useGSAP, ScrollTrigger, MOTION_OK } from '@/lib/gsap'
 
 /**
- * Cuatro pasos en scroll horizontal con `pin`.
+ * Los pasos del proceso en scroll horizontal con `pin`.
  *
  * Aca la numeracion si esta justificada: es una secuencia real y ordenada, no
  * tres features numeradas para que parezca que hay un metodo.
@@ -86,7 +86,7 @@ export function Proceso() {
               as="p"
               className="measure-tight font-display text-d3 text-espresso/80 sm:text-right"
             >
-              De la primera consulta a la sentencia, sin sorpresas.
+              {procesoIntro}
             </Reveal>
           </div>
 
@@ -114,19 +114,31 @@ export function Proceso() {
                 {/* La imagen le pone cuerpo al paso y el numero vive adentro,
                     en cobre sobre la sombra espresso — el mismo trato que los
                     numeros de los planos de Areas. El velo garantiza que el
-                    cobre lea sobre cualquier zona de la foto. */}
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={paso.imagen}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 28vw, 78vw"
-                    className="object-cover"
-                  />
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_srgb,var(--color-espresso)_85%,transparent)_0%,color-mix(in_srgb,var(--color-espresso)_25%,transparent)_40%,transparent_68%)]"
-                  />
+                    cobre lea sobre cualquier zona de la foto.
+
+                    Los pasos que todavia no tienen foto usan la misma caja en
+                    espresso: mismo formato, mismo numero, sin imagen. */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-espresso">
+                  {paso.imagen ? (
+                    <>
+                      <Image
+                        src={paso.imagen}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 28vw, 78vw"
+                        className="object-cover"
+                      />
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_srgb,var(--color-espresso)_85%,transparent)_0%,color-mix(in_srgb,var(--color-espresso)_25%,transparent)_40%,transparent_68%)]"
+                      />
+                    </>
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-[radial-gradient(120%_100%_at_20%_0%,color-mix(in_srgb,var(--color-copper)_16%,transparent),transparent_70%)]"
+                    />
+                  )}
                   <span
                     aria-hidden="true"
                     className="absolute bottom-3 left-5 font-display text-num leading-none text-copper"
