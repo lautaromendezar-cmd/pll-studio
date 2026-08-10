@@ -4,7 +4,7 @@
  * (areas.ts, team.ts, faq.ts, proceso.ts), es un bug.
  */
 
-const WHATSAPP_NUMERO_INTL = '5491139356458'
+const WHATSAPP_NUMERO_INTL = '5491136785201'
 const WHATSAPP_MENSAJE = 'Hola, quisiera hacer una consulta.'
 
 export const site = {
@@ -18,11 +18,11 @@ export const site = {
 
   contacto: {
     /** Celular / WhatsApp, tal como se muestra en pantalla. */
-    celular: '11 3935-6458',
+    celular: '11 3678-5201',
     /** Linea fija del estudio, tal como se muestra en pantalla. */
     fijo: '(011) 4290-6416',
     /** Version E.164 para los href="tel:". */
-    celularTel: '+5491139356458',
+    celularTel: '+5491136785201',
     fijoTel: '+541142906416',
     email: 'pllestudiojuridico@gmail.com',
     whatsapp: `https://wa.me/${WHATSAPP_NUMERO_INTL}?text=${encodeURIComponent(WHATSAPP_MENSAJE)}`,

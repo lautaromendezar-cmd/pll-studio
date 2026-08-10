@@ -184,7 +184,7 @@ que se corrigió es que competían con el contenido en vez de introducirlo.
 ├────────────────────────────────────────────────────────────────┤
 │  Contanos qué te pasó.                                         │  espresso-deep
 │  [ CONSULTAR POR WHATSAPP ]  ← botón a ancho casi completo     │
-│  11 3935-6458 · (011) 4290-6416 · Dardo Rocha 123              │
+│  11 3678-5201 · (011) 4290-6416 · Dardo Rocha 123              │
 ├────────────────────────────────────────────────────────────────┤
 │  P L L      IG  FB  IN            © 2026 · Matrícula federal   │
 └────────────────────────────────────────────────────────────────┘
