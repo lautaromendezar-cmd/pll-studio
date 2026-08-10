@@ -2,7 +2,7 @@ import { Counter } from '@/components/ui/Counter'
 import { Frame } from '@/components/ui/Frame'
 import { Reveal, RevealBlock } from '@/components/ui/Reveal'
 import { TeamPortrait } from '@/components/ui/TeamPortrait'
-import { equipo, equipoResto } from '@/content/team'
+import { equipo, equipoResto, equipoTitulo } from '@/content/team'
 import { site } from '@/content/site'
 
 /**
@@ -26,7 +26,7 @@ export function Estudio() {
   const fichas = [
     ...equipo.map((m) => ({
       nombre: m.nombre,
-      rol: m.titulo,
+      rol: m.titulo ?? null,
       detalle: m.detalle,
       miembro: m,
     })),
@@ -61,7 +61,7 @@ export function Estudio() {
           className="measure mt-7 font-display text-d1 text-bone"
           stagger={0.07}
         >
-          Un estudio con nombre y apellido.
+          {equipoTitulo}
         </Reveal>
 
         <div className="mt-16 grid gap-x-14 gap-y-12 lg:grid-cols-12">
