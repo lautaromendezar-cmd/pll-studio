@@ -48,6 +48,16 @@
   --text-hero--line-height: 0.94;
   --text-hero--letter-spacing: -0.03em;
 
+  /*
+   * Escalon intermedio entre el titular del hero y los display de seccion.
+   * Existe por el manifiesto: es una frase corta que tiene que llenar su
+   * columna, pero no puede leerse al mismo volumen que el hero — si los dos
+   * gritan igual, la jerarquia de la home se aplana.
+   */
+  --text-d0: clamp(2.5rem, 5.5vw, 6rem);
+  --text-d0--line-height: 0.96;
+  --text-d0--letter-spacing: -0.03em;
+
   --text-d1: clamp(1.875rem, 4vw, 3.75rem);
   --text-d1--line-height: 1.02;
   --text-d1--letter-spacing: -0.025em;

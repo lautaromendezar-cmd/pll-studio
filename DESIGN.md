@@ -108,6 +108,7 @@ Escala con `clamp()`, sin breakpoints tipográficos:
 
 ```
 --text-hero:  clamp(2.75rem, 7.5vw, 7.5rem)
+--text-d0:    clamp(2.5rem, 5.5vw, 6rem)
 --text-d1:    clamp(1.875rem, 4vw, 3.75rem)
 --text-d2:    clamp(1.5rem, 2.4vw, 2.25rem)
 --text-d3:    clamp(1.125rem, 1.5vw, 1.4375rem)
@@ -115,6 +116,10 @@ Escala con `clamp()`, sin breakpoints tipográficos:
 --text-body:  clamp(1rem, 1.05vw, 1.0625rem)
 --text-util:  clamp(0.6875rem, 0.8vw, 0.8125rem)
 ```
+
+`--text-d0` es el escalón que faltaba entre el titular del hero y los display de sección. Lo pidió el
+manifiesto cuando su frase pasó a ser corta: a `d1` no llenaba la columna y quedaba un hueco, y a
+`hero` gritaba igual que el titular de arriba. Es el único lugar donde se usa.
 
 **Bajada un escalón completo en la revisión 2.** La primera versión llegaba a 12rem (192px) en el
 titular y 6rem en los display: en un monitor de 1920 el hero ocupaba el viewport entero y el sitio
@@ -143,9 +148,10 @@ que se corrigió es que competían con el contenido en vez de introducirlo.
 │  ⌄                                          ╲ 12.7°            │
 ├────────────────────────────────────────╲───────────────────────┤  ← corte diagonal
 │                                                                │
-│   BLOQUE BONE. Manifiesto a dos columnas desiguales (7/5),     │
-│   sin imagen. Display 300. La segunda columna arranca 40%      │
-│   más abajo que la primera. Sin ilustración, sin ícono.        │
+│   BLOQUE BONE. Manifiesto a dos columnas desiguales (7/4),     │
+│   sin imagen. Display 300 en d0. La segunda columna arranca    │
+│   24% más abajo y las dos se centran entre sí: con la frase    │
+│   corta, el 38% de antes dejaba media sección vacía.           │
 │                                                                │
 ├────────────────────────────────────────────────────────────────┤
 │  ▓▓▓▓▓▓▓▓▓▓ ÁREAS — 3 planos sticky que se pisan ▓▓▓▓▓▓▓▓▓▓▓▓  │  ← ELEMENTO FIRMA

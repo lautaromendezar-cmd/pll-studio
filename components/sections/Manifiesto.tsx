@@ -48,7 +48,7 @@ export function Manifiesto() {
           <Monogram tone="ghostOnBone" className="h-auto w-full" />
         </div>
 
-        <div className="shell relative grid gap-12 lg:grid-cols-12 lg:gap-x-16">
+        <div className="shell relative grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-x-16">
           <div className="lg:col-span-7">
             <h2
               id="manifiesto-titulo"
@@ -63,15 +63,19 @@ export function Manifiesto() {
 
             <Reveal
               as="p"
-              className="mt-9 max-w-[19ch] font-display text-d1 text-espresso"
+              className="mt-9 max-w-[12ch] font-display text-d0 text-espresso"
               stagger={0.07}
             >
               {conDestacados(site.manifiesto.parrafos[0])}
             </Reveal>
           </div>
 
-          {/* Segunda columna desplazada hacia abajo: la grilla no es simetrica. */}
-          <div className="lg:col-span-4 lg:col-start-9 lg:pt-[38%]">
+          {/* Segunda columna desplazada hacia abajo: la grilla no es simetrica.
+              El desfase era del 38%, calibrado para un titular de cinco lineas.
+              Con la frase corta de ahora la izquierda quedaba colgada arriba y
+              media seccion vacia debajo: se acorto el desfase y las dos columnas
+              se centran entre si, que es lo que reparte el aire. */}
+          <div className="lg:col-span-4 lg:col-start-9 lg:pt-[24%]">
             <RevealBlock>
               <hr className="hairline w-16" />
             </RevealBlock>
