@@ -171,7 +171,7 @@ export function Hero() {
         <h1
           data-hero-title
           data-anim="hidden"
-          className="mt-8 max-w-[15ch] text-hero text-bone sm:mt-10"
+          className="mt-8 max-w-[22ch] text-hero text-bone sm:mt-10"
         >
           {site.hero.titulo.map((linea) => (
             <span key={linea} data-hero-line className="reveal-mask">

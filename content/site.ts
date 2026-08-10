@@ -82,9 +82,9 @@ export const site = {
 
   hero: {
     eyebrow: 'Estudio jurídico · Monte Grande, Buenos Aires',
-    titulo: ['Detrás de cada', 'expediente hay', 'una persona.'],
+    titulo: ['El derecho exige', 'más que conocimiento.', 'Exige criterio.'],
     bajada:
-      'Más de 30 años en daños, derecho laboral y derecho deportivo. Asesoramiento claro, trato directo y una estrategia pensada para cada caso.',
+      'En PLL Estudio Jurídico combinamos excelencia técnica, pensamiento estratégico y atención personalizada para brindar soluciones jurídicas sólidas en cada etapa del conflicto.',
     ctaPrimario: 'Consultar por WhatsApp',
     ctaSecundario: 'Ver áreas de trabajo',
   },
