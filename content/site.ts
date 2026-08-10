@@ -93,8 +93,8 @@ export const site = {
     eyebrow: 'Por qué nos eligen',
     /** Lo que va entre asteriscos se pinta en cobre. */
     parrafos: [
-      'Nos eligen por el *trato cercano*, la *comunicación constante* y el *compromiso* con cada caso.',
-      'Explicamos en criollo lo que está en juego, evaluamos con honestidad las posibilidades y planteamos las alternativas antes de iniciar cualquier acción. Esa forma de trabajar, sumada a una estrategia jurídica sólida, construyó relaciones de confianza que duran décadas.',
+      'Confianza que se construye *con hechos*.',
+      'Cada consulta recibe un análisis serio, una respuesta honesta y una estrategia cuidadosamente diseñada. Mantenemos una comunicación clara durante todo el proceso porque entendemos que una buena defensa también consiste en que el cliente sepa, en cada etapa, dónde está parado.',
     ],
   },
 
