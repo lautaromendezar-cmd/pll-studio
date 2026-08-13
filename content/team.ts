@@ -25,10 +25,9 @@ export const equipo: Miembro[] = [
     foto: null,
   },
   {
-    // TODO: el cliente lo mando sin "Dr." y sin rol, cuando antes figuraba como
-    // "Dr. Agustín Llamera / Abogado / Socio". Se respeta lo que mando, pero hay
-    // que confirmarlo: es el tratamiento de una persona real en su propio sitio.
-    nombre: 'Agustín Llamera',
+    // El cliente lo habia mandado sin "Dr." y sin rol; pidio que vuelva el "Dr.".
+    // El rol ("Socio") sigue sin confirmar, por eso la ficha no lo muestra.
+    nombre: 'Dr. Agustín Llamera',
     detalle:
       'Desarrolla su actividad en las áreas de práctica del estudio, participando en el diseño de estrategias y en el seguimiento integral de los casos.',
     foto: null,
