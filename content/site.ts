@@ -13,8 +13,13 @@ export const site = {
   descripcionCorta:
     'Estudio jurídico en Monte Grande, Buenos Aires. Más de 30 años en daños, derecho laboral y derecho deportivo.',
 
-  /** Cambiar por el dominio definitivo antes de publicar. Se usa en metadata, sitemap y JSON-LD. */
-  url: 'https://pllestudiojuridico.com.ar',
+  /**
+   * Dominio definitivo. Se usa en metadata, sitemap, robots y JSON-LD.
+   * Va CON www porque en Vercel el host de produccion es www y el apex redirige con 308.
+   * Si algun dia se invierte el redirect, hay que cambiarlo aca tambien: un canonical que
+   * apunta al host que redirige le hace hacer un salto de mas a Google en cada pagina.
+   */
+  url: 'https://www.estudiopll.com.ar',
 
   contacto: {
     /** Celular / WhatsApp, tal como se muestra en pantalla. */
